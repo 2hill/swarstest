@@ -1,5 +1,11 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-
+node_modules/
+.DS_Store
+*.log
+.next/
+.build/
+layout.md
+variables.env
 # dependencies
 /node_modules
 
