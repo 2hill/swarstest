@@ -8,12 +8,88 @@ body {
   src: url(./font/starjedi/Starjedi.ttf);
 }
 .title {
-  font-family: headerFont;
+
+    text-align: center;
+    font: 5rem headerFont,
+    cursive;
+    font-weight: normal;
+    transform: rotate(-5deg) skew(-20deg);
+    margin: 2rem 0 2rem 0;
+  
 }
 
-.loader {
-  margin: 0 auto;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 100;
+html {
+  font-size: 10px;
 }
+
+body {
+  font-family: sans-serif;
+  background: #ffc425;
+  background: linear-gradient(to bottom, #0b848d 50%, #2db0c2 100%);
+  background-attachment: fixed;
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+a {
+  color: #0d181c;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 a {
+  text-decoration: none;
+  font-size: 10rem;
+  text-shadow: 3px 3px 0 rgba(13, 24, 28, 0.2);
+}
+
+
+/*
+  Search
+*/
+
+.search {
+  text-align: center;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.search form {
+  display: flex;
+}
+
+.search form>* {
+  flex: 1;
+  background: #fff;
+  border: 0;
+  padding: 2rem;
+  font-size: 2rem;
+  /*border-radius: 24px;*/
+}
+
+.search form>*[type="submit"] {
+  flex-grow: 2;
+  background: #c58961;
+  color: rgb(48, 46, 46);
+  text-transform: uppercase;
+}
+
+.search form>*[type="text"] {
+  flex-grow: 10;
+}
+

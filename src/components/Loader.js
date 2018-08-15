@@ -1,18 +1,28 @@
 import React from 'react';
+import Beer from './Item';
+import Loader from './Loader';
+import PropTypes from 'prop-types';
 
-class Loader extends React.Component {
-
+class Results extends React.Component {
+    static propTypes = {
+        loading: PropTypes.bool.isRequired,
+        beers: PropTypes.array.isRequired
+    }
 
     render() {
-        return (
+        if (this.props.loading) {
+            return <Loader message="🍻 Beer run!" />;
+        }
 
-            <div className="loader">
-                <img src="/images/logo.svg" alt="Loading..." />
-                <h2>Your Message from props goes here</h2>
+        return (
+            <div className="results">
+                <div className="beers">
+                    {this.props.beers.map((details, i) => <Beer details={details} key={details.id} />)}
+                </div>
             </div>
-        )
+        );
     }
 };
 
-export default Loader;
+export default Results;
 
