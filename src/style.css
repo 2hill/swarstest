@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+@font-face {
+  font-family: headerFont;
+  src: url(./font/starjedi/Starjedi.ttf);
+}
+.title {
+  font-family: headerFont;
+}
+
+.loader {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 100;
+}
