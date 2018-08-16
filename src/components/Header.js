@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
@@ -10,9 +11,10 @@ class Header extends React.Component {
 
     render() {
         return (
-            <h3 className="title"> {this.props.siteName} </h3>
-
-        )
+            <h3 className="title">
+                <Link to="/">{this.props.siteName}</Link>
+            </h3>
+        );
     }
 };
 

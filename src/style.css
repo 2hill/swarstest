@@ -52,12 +52,19 @@ img {
   max-width: 100%;
 }
 
+h1 {
+  text-align: center;
+  font-family: 'Bevan', cursive;
+  font-weight: normal;
+  transform: rotate(-5deg) skew(-20deg);
+  margin: 2rem 0 2rem 0;
+}
+
 h1 a {
   text-decoration: none;
   font-size: 10rem;
   text-shadow: 3px 3px 0 rgba(13, 24, 28, 0.2);
 }
-
 
 /*
   Search
