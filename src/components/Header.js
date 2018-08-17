@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class Header extends React.Component {
 
     static propTypes = {
-        siteName: PropTypes.string.isRequired
+        siteName: PropTypes.string
     }
 
     render() {

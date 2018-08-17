@@ -9,7 +9,7 @@ class Search extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const searchTerm = this.q.value;
-        this.context.router.history.push(`/search/${searchTerm}`);
+        this.context.router.history.push(`/?search/${searchTerm}`);
     }
 
     render() {

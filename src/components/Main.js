@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './Header';
 import Results from './Results';
 import Search from './Search';
-
+import Header from './Header';
 
 class Main extends React.Component {
 
@@ -18,30 +17,55 @@ class Main extends React.Component {
     componentDidMount() {
         console.log(`mounting`);
         console.log(this);
-        const params = this.props.match.params || {};
+       /* const params = this.props.match.params || {};
         const searchTerm = params.searchTerm || undefined;
-        this.loadShips(searchTerm);
+        this.loadShips(searchTerm); */
+        this.loadShips();
     }
 
-    componentWillReceiveProps(nextProps) {
+    /*componentWillReceiveProps(nextProps) {
         console.log("Will receive props!");
         console.log(nextProps);
         this.loadShips(nextProps.match.params.searchTerm);
     }
+    */
+
+    componentDidUpdate(prevProps) {
+        console.log('did update');
+        const currentSearchTerm = this.props.match.params.searchTerm;
+        const oldSearchTerm = prevProps.match.params.searchTerm;
+        if (currentSearchTerm !== oldSearchTerm) {
+            this.loadShips(currentSearchTerm);
+        }
+    }
+
 
     loadShips = (searchTerm = "ship") => {
         this.setState ({loading: true});
 
-        fetch(`https://swapi.co/api/starships/`)
+        // Check for ships in local storage
+        const localStorageShips = localStorage.getItem(`search-${searchTerm}`);
+
+        if (localStorageShips) {
+            const localShips = JSON.parse(localStorageShips);
+            this.setState({ ships: localShips, loading: false });
+            return; // stop before fetch happens!
+        }
+
+        
+
+        fetch(`https://swapi.co/api/starships/?search=${searchTerm}`)
             .then(data => data.json())
             .then(data => {
-                console.log(data);
+                //console.log(data);
                 // filter for ships with images
                 const ships = data.data || [];
-                const filteredShips = ships.filter(ship => !!ship.labels);
-                this.setState({ ships: filteredShips, loading: false });            
+                //const filteredShips = ships.filter(ship => !!ship.pilots);
+                //this.setState({ ships: filteredShips, loading: false });  
+                this.setState({ships: ships, loading: false})    ;      
             })
             .catch(err => console.error(err));
+        console.log(this.state.ships);
     };
 
     render() {
@@ -50,6 +74,7 @@ class Main extends React.Component {
                 <Header siteName ="Stars Wiki"/>
                 <Search />
                 <Results ships={this.state.ships} loading={this.state.loading} />
+              
             </div>
         )
     }
