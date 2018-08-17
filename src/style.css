@@ -7,7 +7,7 @@ body {
   font-family: headerFont;
   src: url(./font/starjedi/Starjedi.ttf);
 }
-.title {
+.title, a {
 
     text-align: center;
     font: 5rem headerFont,
@@ -15,7 +15,7 @@ body {
     font-weight: normal;
     transform: rotate(-5deg) skew(-20deg);
     margin: 2rem 0 2rem 0;
-  
+     color: rgb(208, 219, 43);
 }
 
 html {
@@ -25,7 +25,7 @@ html {
 body {
   font-family: sans-serif;
   background: #ffc425;
-  background: linear-gradient(to bottom, #0b848d 50%, #2db0c2 100%);
+  background: linear-gradient(to bottom, #3c4b4d 50%, #1c2d30 100%);
   background-attachment: fixed;
 }
 
@@ -33,19 +33,8 @@ p {
   font-size: 1.8rem;
   line-height: 1.5;
 }
-
-a {
-  color: #0d181c;
-}
-
 html {
   box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
 }
 
 img {
@@ -64,6 +53,36 @@ h1 a {
   text-decoration: none;
   font-size: 10rem;
   text-shadow: 3px 3px 0 rgba(13, 24, 28, 0.2);
+}
+/*
+  Navbar
+*/
+
+nav {
+  width: 60%;
+  background: #00316b;
+  margin: 0 auto;
+   border-radius: 20px;
+}
+
+ul {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  justify-items: center;
+  padding: 25px;
+}
+
+ul li a {
+  color: rgb(208, 219, 43);
+  text-decoration: none;
+  font-family: headerFont;
+  font-size: 25px; 
 }
 
 /*

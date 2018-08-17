@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-class Search extends React.Component {
+class Nav extends React.Component {
 
     static contextTypes = {
         router: PropTypes.object.isRequired
@@ -13,15 +13,16 @@ class Search extends React.Component {
     }
     render() {
         return (
-            <div className="search">
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" ref={(q) => this.q = q} placeholder="Ships, Planets, Characters.." />
-                    <input type="submit" value="Search" />
-                </form>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Starships</a></li>
+                    <li><a href="#">Planets</a></li>
+                    <li><a href="#">Characters</a></li>
+                </ul>
+            </nav>
         );
     }
 };
 
 
-export default Search;
+export default Nav;

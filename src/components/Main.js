@@ -1,6 +1,6 @@
 import React from 'react';
 import Results from './Results';
-import Search from './Search';
+import Nav from './Nav';
 import Header from './Header';
 
 class Main extends React.Component {
@@ -68,7 +68,7 @@ let initialStarships = [];
         return(
             <div className="wrapper">
                 <Header siteName ="Stars Wiki"/>
-                <Search />
+                <Nav />
                 <Results ships={this.state.ships} loading={this.state.loading} />
             
             </div>
