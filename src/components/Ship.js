@@ -14,10 +14,6 @@ class Ship extends React.Component {
         params: PropTypes.object
     };
 
-    componentDidMount() {
-        console.log(`searching for ${this.props.match.params.shipId}`);
-        this.loadShip(this.props.match.params.shipId);
-    }
 
     loadShip = shipId => {
         console.log(`Loading ship ${shipId}`);

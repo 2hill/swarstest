@@ -1,6 +1,6 @@
 import React from 'react';
-import Ship from './Ship';
 import Loader from './Loader';
+import Ship from './Ship';
 import PropTypes from 'prop-types';
 
 class Results extends React.Component {
@@ -19,10 +19,10 @@ class Results extends React.Component {
         return (
             <div className="results">
                 <div className="beers">
-                    {this.props.ships.map((details, i) => <Ship details={details} key={details.id} />)}
+                    { <Ship />}
                 </div>
 
-                <pre>{JSON.stringify(this.props.ships, null, '  ')}</pre>
+                
 
             </div>
         );

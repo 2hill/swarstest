@@ -11,24 +11,31 @@ class Main extends React.Component {
             ships: [],
             loading: true
         };
+
+        this.loadShips = this.loadShips.bind(this);
     }
 
 
     componentDidMount() {
         console.log(`mounting`);
         console.log(this);
-       /* const params = this.props.match.params || {};
-        const searchTerm = params.searchTerm || undefined;
-        this.loadShips(searchTerm); */
-        this.loadShips();
+        //this.loadShips();
+let initialStarships = [];
+        fetch(`https://swapi.co/api/starships/`)
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data);
+                initialStarships = data.results.map((ship) => {return ship});
+                console.log(initialStarships);
+                this.setState({ ships: initialStarships, loading: false });
+            })
+            .catch(err => console.error(err));
+        console.log(this.state.ships);
+
+
     }
 
-    /*componentWillReceiveProps(nextProps) {
-        console.log("Will receive props!");
-        console.log(nextProps);
-        this.loadShips(nextProps.match.params.searchTerm);
-    }
-    */
+
 
     componentDidUpdate(prevProps) {
         console.log('did update');
@@ -54,18 +61,7 @@ class Main extends React.Component {
 
         
 
-        fetch(`https://swapi.co/api/starships/?search=${searchTerm}`)
-            .then(data => data.json())
-            .then(data => {
-                //console.log(data);
-                // filter for ships with images
-                const ships = data.data || [];
-                //const filteredShips = ships.filter(ship => !!ship.pilots);
-                //this.setState({ ships: filteredShips, loading: false });  
-                this.setState({ships: ships, loading: false})    ;      
-            })
-            .catch(err => console.error(err));
-        console.log(this.state.ships);
+
     };
 
     render() {
@@ -74,7 +70,7 @@ class Main extends React.Component {
                 <Header siteName ="Stars Wiki"/>
                 <Search />
                 <Results ships={this.state.ships} loading={this.state.loading} />
-              
+            
             </div>
         )
     }
