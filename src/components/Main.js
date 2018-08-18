@@ -1,5 +1,5 @@
 import React from 'react';
-import Results from './Results';
+//import Results from './Results';
 import Nav from './Nav';
 import Header from './Header';
 import Anim from './Anim';
