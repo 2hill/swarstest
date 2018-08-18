@@ -65,23 +65,8 @@ nav {
   margin: 0 auto;
    border-radius: 20px;
 }
-
-ul {
-  width: 80%;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-}
-
-ul li {
-  list-style: none;
-  justify-items: center;
-  padding: 25px;
-}
-
 ul li a {
   color: rgb(208, 219, 43);
-  text-decoration: none;
   font-family: headerFont;
   font-size: 25px; 
 }

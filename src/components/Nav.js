@@ -13,7 +13,7 @@ class Nav extends React.Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="navbar-collapse collapse" id="navbar10">
-                        <ul className="navbar-nav nav-fill w-60">
+                        <ul className="navbar-nav nav-fill w-100">
                             <li className="nav-item"><Link to="/Ship">Starships</Link></li>
                             <li className="nav-item"><Link to="/planets">Planets</Link></li>
                             <li className="nav-item"><Link to="/characters">Characters</Link></li>
