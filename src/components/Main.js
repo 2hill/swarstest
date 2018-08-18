@@ -69,7 +69,7 @@ let initialStarships = [];
             <div className="wrapper">
                 <Header siteName ="Stars Wiki"/>
                 <Nav />
-                <Results ships={this.state.ships} loading={this.state.loading} />
+        {/*<Results ships={this.state.ships} loading={this.state.loading} />*/}
             
             </div>
         )

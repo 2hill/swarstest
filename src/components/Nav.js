@@ -1,24 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 class Nav extends React.Component {
 
-    static contextTypes = {
-        router: PropTypes.object.isRequired
-    }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const searchTerm = this.q.value;
-        this.context.router.history.push(`/?search/${searchTerm}`);
-    }
     render() {
-        return (
-            <nav>
-                <ul>
-                    <li><a href="#">Starships</a></li>
-                    <li><a href="#">Planets</a></li>
-                    <li><a href="#">Characters</a></li>
-                </ul>
+        return (    
+            
+            <nav className="navbar navbar-expand-lg navbar-dark">
+                <div className="container">
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="navbar-collapse collapse" id="navbar10">
+                        <ul className="navbar-nav nav-fill w-60">
+                            <li className="nav-item"><Link to="/Ship">Starships</Link></li>
+                            <li className="nav-item"><Link to="/planets">Planets</Link></li>
+                            <li className="nav-item"><Link to="/characters">Characters</Link></li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         );
     }
