@@ -2,6 +2,7 @@ import React from 'react';
 import Results from './Results';
 import Nav from './Nav';
 import Header from './Header';
+import Anim from './Anim';
 
 class Main extends React.Component {
 
@@ -69,7 +70,8 @@ let initialStarships = [];
             <div className="wrapper">
                 <Header siteName ="Stars Wiki"/>
                 <Nav />
-                
+                <Anim />
+
         {/*<Results ships={this.state.ships} loading={this.state.loading} />*/}
             
             </div>

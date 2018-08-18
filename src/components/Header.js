@@ -12,7 +12,7 @@ class Header extends React.Component {
     render() {
         return (
             <h3 className="title">
-                <Link to="/">{this.props.siteName}</Link>
+                <Link to="/" style={{ textDecoration: 'none' }}>{this.props.siteName} </Link>
             </h3>
         );
     }
