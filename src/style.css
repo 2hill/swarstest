@@ -110,6 +110,13 @@ ul li a {
 
 /*animation*/
 
+.animtitle >* {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  padding-bottom: 25px;
+}
+
 .star-wars {
   /* Force the body to fill the entire screen */
   width: 100%;
@@ -133,8 +140,7 @@ background: linear-gradient(to bottom, #0c0d0e 50%, #020d0f 100%);
   color: #feda4a;
   font-family: 'headerFont',
   sans-serif;
-  font-size: 500%;
-  font-weight: 9000;
+  font-size: 50px;
   letter-spacing: 6px;
   line-height: 450%;
   text-align: justify;
@@ -155,7 +161,7 @@ background: linear-gradient(to bottom, #0c0d0e 50%, #020d0f 100%);
   /* Defines the skew origin at the very center when we apply transforms on the animation */
   transform-origin: 50% 100%;
   /* Adds the crawl animation, which plays for one minute */
-  animation: crawl 60s linear;
+  animation: crawl 120s linear;
 }
 
 @keyframes crawl {
