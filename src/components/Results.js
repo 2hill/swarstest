@@ -3,6 +3,7 @@ import Loader from './Loader';
 import Ship from './Ship';
 import PropTypes from 'prop-types';
 
+
 class Results extends React.Component {
     static propTypes = {
         loading: PropTypes.bool.isRequired,
@@ -11,19 +12,10 @@ class Results extends React.Component {
 
     render() {
 
-        if (this.props.loading) {
-            return <Loader message="Starship searching" />;
-        }
-
 
         return (
             <div className="results">
-                <div className="beers">
-                    { <Ship />}
-                </div>
-
-                
-
+             
             </div>
         );
     }
