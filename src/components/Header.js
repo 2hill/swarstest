@@ -1,19 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import Title from "react-titles/Title4";
+
+
 
 
 class Header extends React.Component {
-
-    static propTypes = {
-        siteName: PropTypes.string
-    }
-
     render() {
-        return (
-            <h3 className="title">
-                <Link to="/" style={{ textDecoration: 'none' }}>{this.props.siteName} </Link>
-            </h3>
+        return(
+            <Title size="200" text1="STAR" text2="WIKI" open={true} />
         );
     }
 };

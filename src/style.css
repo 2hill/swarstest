@@ -100,6 +100,24 @@ ul li a {
   font-size: 25px;
 }
 
+/*  Animation */
+
+.loader {
+  -webkit-order: 3;
+  -ms-flex-order: 3;
+  order: 3;
+  -webkit-flex: 3 0 auto;
+  -ms-flex: 3 0 auto;
+  flex: 3 0 auto;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  width: 80%;
+  background: url(bgPic.jpg) center center no-repeat;
+  margin: 25px;
+  background-size: cover;
+}
+
 /*
   Search
 */
@@ -134,20 +152,6 @@ ul li a {
   flex-grow: 10;
 }
 
-/*  Animation */
+/* BB8 Animation */
 
-.loader {
-  -webkit-order: 3;
-  -ms-flex-order: 3;
-  order: 3;
-  -webkit-flex: 3 0 auto;
-  -ms-flex: 3 0 auto;
-  flex: 3 0 auto;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  width: 80%;
-  background: url(bgPic.jpg) center center no-repeat;
-  margin: 25px;
-  background-size: cover;
-}
+
