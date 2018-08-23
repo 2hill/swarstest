@@ -1,3 +1,3 @@
 React app using Star Wars API (https://swapi.co/)
 
-![Alt text](desktop/bg.jpg)
+![Alt text](public/bg.jpg)
