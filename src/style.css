@@ -1,11 +1,12 @@
 html {
   font-size: 10px;
 }
-.bg {
 
-    background: url("./bgPic.jpg") no-repeat center center fixed;
-    background-size: cover;
+.bg {
+  background: url("./bgPic.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
+
 body {
   font-family: sans-serif;
   background: linear-gradient(to bottom, #0c0d0e 50%, #020d0f 100%);
@@ -60,6 +61,25 @@ h1 a {
 .wrapper {
   padding-top: 25px;
   height: 100vh;
+  /* Flex parent container */
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 /*
@@ -114,9 +134,20 @@ ul li a {
   flex-grow: 10;
 }
 
-.beers {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 900px;
-  margin: 0 auto;
+/*  Animation */
+
+.loader {
+  -webkit-order: 3;
+  -ms-flex-order: 3;
+  order: 3;
+  -webkit-flex: 3 0 auto;
+  -ms-flex: 3 0 auto;
+  flex: 3 0 auto;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  width: 80%;
+  background: url(bgPic.jpg) center center no-repeat;
+  margin: 25px;
+  background-size: cover;
 }

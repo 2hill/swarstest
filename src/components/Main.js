@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import Header from './Header';
+import Anim from './Anim';
 
 
 class Main extends React.Component {
@@ -142,6 +143,8 @@ class Main extends React.Component {
         <div className = "wrapper">
             <Header siteName = "Stars Wiki"/>
             <Nav/>
+            <Anim/>
+
         </div>
         )
     }
