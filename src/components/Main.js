@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Nav from './Nav';
 import Anim from './Anim';
-import Results from './Results';
+
 
 class Main extends React.Component {
 
@@ -141,11 +141,9 @@ class Main extends React.Component {
     render() {
         return ( 
         <div className = "wrapper">
-            <Header siteName = "Stars Wiki"/>
+            <Header/>
             <Nav/>
             <Anim/>
-                <Results ships={this.state.ships} planets={this.state.planets} characters={this.state.characters}/>
-
         </div>
         )
     }
