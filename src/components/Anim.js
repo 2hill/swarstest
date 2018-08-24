@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+    //if route = display img background for ships charact and planets
 
 const Anim = (props) => (
+
 
     <div className="loader">
 
     </div>
 );
 
-Anim.propTypes = {
-    message: PropTypes.string
-};
+
 
 export default Anim;

@@ -1,20 +1,20 @@
 import React from 'react';
-
+import Anim from './Anim';
+import Header from './Header';
+import Nav from './Nav';
+import Search from './Search';
 
 
 class Ship extends React.Component {
-    constructor() {
-        super();
-        this.state = { ships: {}, loading: true };
-    }
 
     render() {
-;
-
         return (
-            <div className="bg">
-                
-            </div>
+            <div className="wrapper">
+                <Header/>
+                <Nav />
+                <Search/>
+                <Anim />
+            </div>       
         );
     }
 }

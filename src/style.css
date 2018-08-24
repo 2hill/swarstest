@@ -1,5 +1,6 @@
 html {
   font-size: 10px;
+
 }
 
 .bg {
@@ -30,7 +31,9 @@ a {
   color: rgb(208, 219, 43);
   padding-bottom: 25px;
 }
-
+a:hover {
+  color: inherit;
+}
 p {
   font-size: 1.8rem;
   line-height: 1.5;
@@ -116,6 +119,7 @@ ul li a {
   background: url(bgPic.jpg) center center no-repeat;
   margin: 25px;
   background-size: cover;
+
 }
 
 /*

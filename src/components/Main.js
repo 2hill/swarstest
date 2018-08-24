@@ -1,8 +1,8 @@
 import React from 'react';
-import Nav from './Nav';
 import Header from './Header';
+import Nav from './Nav';
 import Anim from './Anim';
-
+import Results from './Results';
 
 class Main extends React.Component {
 
@@ -72,7 +72,7 @@ class Main extends React.Component {
                 });
                 console.log(initialCharacters);
                 this.setState({
-                    ships: initialCharacters,
+                    characters: initialCharacters,
                     loading: false
                 });
             })
@@ -144,6 +144,7 @@ class Main extends React.Component {
             <Header siteName = "Stars Wiki"/>
             <Nav/>
             <Anim/>
+                <Results ships={this.state.ships} planets={this.state.planets} characters={this.state.characters}/>
 
         </div>
         )
