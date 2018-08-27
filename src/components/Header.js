@@ -4,9 +4,9 @@ import Title from "react-titles/Title4";
 class Header extends React.Component {
     render() {
         return(
-            
-            <Title size="200" text1="WIKI" text2="STAR" open={true} />
-        
+        <Link to="/">
+            <Title size="200" text1="WKI" text2="STAR" fontFamily="" open={true} />
+        </Link>
         );
     }
 };
