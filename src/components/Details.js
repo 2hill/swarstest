@@ -150,7 +150,7 @@ class Details extends React.Component {
             <Header/>
             <Nav/>
             <Search/>
-            <Results ships={this.state.ships}/>
+            <Results ships={this.state.ships} characters={this.state.characters} planets={this.state.planets}/>
         </div>
                 )
     }
