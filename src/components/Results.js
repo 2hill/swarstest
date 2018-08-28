@@ -1,28 +1,27 @@
 import React from "react";
 import Individual from "./Individual";
-import { Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
+
 
 
 class Results extends React.Component {
 
-              
-
-
+     
     render() {
+
+        const current_page = this.props.location.pathname;
+
         return (
-            <div className="results">
-              
-                if (<Route exact path="/ships" />) 
-                         {this.props.ships.map((details, i) => <Individual details={details} key={details.name} />)}    
-                
-                else if (<Route exact path="/planets"/>)  
-                         {this.props.planets.map((details, i) => <Individual details={details} key={details.name} />)}      
-                
-                else if (<Route exact path="/characters" />) 
+            <div className="results">            
+                if ({current_page} === {"/ships"} ) 
+                         {this.props.ships.map((details, i) => <Individual details={details} key={details.name} />)}                  
+                else if ({current_page} === {"/planets"})  
+                         {this.props.planets.map((details, i) => <Individual details={details} key={details.name} />)}                     
+                else if ({current_page} === {"/characters"}) 
                         {this.props.characters.map((details, i) => <Individual details={details} key={details.name} />)} 
             </div>
         );
     }
 };
 
-export default Results;
+export default withRouter(Results);
