@@ -19,6 +19,7 @@ class Results extends React.Component {
                          {this.props.planets.map((details, i) => <Individual details={details} key={details.name} />)}                     
                 else if ({current_page} === {"/characters"}) 
                         {this.props.characters.map((details, i) => <Individual details={details} key={details.name} />)} 
+        
             </div>
         );
     }
