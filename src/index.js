@@ -4,7 +4,9 @@ import { render } from 'react-dom';
 import Main from './components/Main';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './style.css';
-import Details from './components/Details';
+import DetailsShips from './components/DetailsShips';
+import DetailsPlanets from './components/DetailsPlanets';
+import DetailsCharacters from './components/DetailsCharacters';
 
 
 const Root = function () {
@@ -12,9 +14,10 @@ const Root = function () {
         <BrowserRouter>
             <div>
                 <Route exact path="/" component={Main} />
-                <Route path="/ships" component={Details} />
-                <Route path="/planets" component={Details} />
-                <Route path="/characters" component={Details}/>
+                <Route path="/ships" component={DetailsShips} />
+                <Route path="/planets" component={DetailsPlanets} />
+                <Route path="/characters" component={DetailsCharacters} />
+
             </div>
         </BrowserRouter>
     );

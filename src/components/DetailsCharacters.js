@@ -2,13 +2,10 @@ import React from 'react';
 import Header from './Header';
 import Nav from './Nav';
 import Search from './Search';
-import Ships from './Ships';
-import Planets from './Planets';
 import Characters from './Characters';
-import { withRouter } from "react-router-dom";
 
 
-class Details extends React.Component {
+class DetailsCharacters extends React.Component {
 
 
 
@@ -43,7 +40,7 @@ class Details extends React.Component {
                 console.log(initialStarships);
                 this.setState({
                     ships: initialStarships,
-                
+
                 });
             })
             .catch(err => console.error(err));
@@ -147,19 +144,17 @@ class Details extends React.Component {
 
 
 
-    render (){
+    render() {
         return (
-        <div className="wrapper">
-            <Header/>
-            <Nav/>
-            <Search/>
-            <Ships ships={this.state.ships} />
-            <Planets planets={this.state.planets} />
-            <Characters characters={this.state.characters} />
-        </div>
-                )
+            <div className="wrapper">
+                <Header />
+                <Nav />
+                <Search />
+                <Characters characters={this.state.characters} />
+            </div>
+        )
     }
 }
 
-export default Details;
+export default DetailsCharacters;
 
