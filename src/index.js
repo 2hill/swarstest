@@ -9,7 +9,7 @@ import NotFound from './components/NotFound';
 import DetailsShips from './components/DetailsShips';
 import DetailsPlanets from './components/DetailsPlanets';
 import DetailsCharacters from './components/DetailsCharacters';
->
+
 
 const Root = function () {
     return (
