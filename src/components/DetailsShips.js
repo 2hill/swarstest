@@ -3,12 +3,10 @@ import Header from './Header';
 import Nav from './Nav';
 import Search from './Search';
 import Ships from './Ships';
-import Planets from './Planets';
-import Characters from './Characters';
-import { withRouter } from "react-router-dom";
 
 
-class Details extends React.Component {
+
+class DetailsShips extends React.Component {
 
 
 
@@ -154,12 +152,10 @@ class Details extends React.Component {
             <Nav/>
             <Search/>
             <Ships ships={this.state.ships} />
-            <Planets planets={this.state.planets} />
-            <Characters characters={this.state.characters} />
         </div>
                 )
     }
 }
 
-export default Details;
+export default DetailsShips;
 
