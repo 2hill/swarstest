@@ -14,9 +14,10 @@ const Root = function () {
             <div>
             <Switch>
                 <Route exact path="/" component={Main} />
-                <Route path="/ships" component={Details} />
-                <Route path="/planets" component={Details} />
-                <Route path="/characters" component={Details}/>
+
+                <Route path="/ships"  render={(ships) => <Details {...ships}/>}/>
+                <Route path="/planets" render={(planets) => <Details {...planets} />} />
+                <Route path="/characters" render={(characters) => <Details {...characters} />} />
                 <Route component={NotFound} />
              </Switch>
             </div>

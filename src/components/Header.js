@@ -5,7 +5,7 @@ class Header extends React.Component {
     render() {
         return(
         <Link to="/">
-            <Title size="200" text1="WKI" text2="STAR" fontFamily="" open={true} />
+            <Title size={"200"} text1="WKI" text2="STAR" fontFamily="" open={true} />
         </Link>
         );
     }
