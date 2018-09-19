@@ -12,7 +12,7 @@ class Individual extends React.Component {
         if (current_page === "/ships") {
             shipTitle = ["Max Speed", "Max Capacity"];
         } else if (current_page === "/characters") {
-            characterTitle = ["Height", "Wheight"];
+            characterTitle = ["Height", "Weight"];
         } else if (current_page === "/planets") {
             planetTitle = ["Climate", "Terrain"];
         };
@@ -24,7 +24,7 @@ class Individual extends React.Component {
             <div className="individual">
                 <h2>Name: {name}</h2>
                 <h2> { shipTitle[0]|| characterTitle[0] || planetTitle[0] } : { max_atmosphering_speed || height || climate }</h2>
-                <h2>{ shipTitle[1] || characterTitle[1] || planetTitle[1] }: { passengers || mass ||terrain }</h2>
+                <h2>{ shipTitle[1] || characterTitle[1] || planetTitle[1] } : { passengers || mass ||terrain }</h2>
             </div>
         );
     }
