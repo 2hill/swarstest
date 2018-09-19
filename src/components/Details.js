@@ -2,9 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Nav from './Nav';
 import Search from './Search';
-import Ships from './Ships';
-import Planets from './Planets';
-import Characters from './Characters';
 import { withRouter } from "react-router-dom";
 
 
@@ -151,9 +148,8 @@ class Details extends React.Component {
             <Header/>
             <Nav/>
             <Search/>
-            <Ships ships={this.state.ships} />
-            <Planets planets={this.state.planets} />
-            <Characters characters={this.state.characters} />
+            <Results ships={this.state.ships} characters={this.state.characters} planets={this.state.planets} />
+
         </div>
                 )
     }
