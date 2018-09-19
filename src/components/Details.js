@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from './Header';
-import results from './Results';
+import Results from './Results';
 import Nav from './Nav';
 import Search from './Search';
-import { withRouter } from "react-router-dom";
+
 
 
 class Details extends React.Component {
@@ -25,67 +25,62 @@ class Details extends React.Component {
 
 
     componentDidMount() {
-        console.log(`mounting`);
-        console.log(this);
-        //this.loadShips();
+  
 
         /* fetch starships*/
         let initialStarships = [];
         fetch(`https://swapi.co/api/starships/`)
             .then(response => response.json())
             .then(data => {
-                //console.log(data);
                 initialStarships = data.results.map((ship) => {
                     return ship
                 });
-                console.log(initialStarships);
+               
                 this.setState({
                     ships: initialStarships,
                 
                 });
             })
             .catch(err => console.error(err));
-        console.log(this.state.ships);
+    
 
         /* fetch planets*/
         let initialPlanets = [];
         fetch(`https://swapi.co/api/planets/`)
             .then(response => response.json())
             .then(data => {
-                //console.log(data);
                 initialPlanets = data.results.map((planet) => {
                     return planet
                 });
-                console.log(initialPlanets);
+            
                 this.setState({
                     planets: initialPlanets,
                     loading: false
                 });
             })
             .catch(err => console.error(err));
-        console.log(this.state.planets);
+ 
 
         /* fetch characters */
         let initialCharacters = [];
         fetch(`https://swapi.co/api/people/`)
             .then(response => response.json())
             .then(data => {
-                //console.log(data);
                 initialCharacters = data.results.map((character) => {
                     return character
                 });
-                console.log(initialCharacters);
+               
                 this.setState({
                     characters: initialCharacters,
                     loading: false
                 });
             })
             .catch(err => console.error(err));
-        console.log(this.state.characters);
+      
     }
 
     componentDidUpdate(prevProps) {
-        console.log('did update');
+        
         const currentSearchTerm = this.props.match.params.searchTerm;
         const oldSearchTerm = prevProps.match.params.searchTerm;
         if (currentSearchTerm !== oldSearchTerm) {
