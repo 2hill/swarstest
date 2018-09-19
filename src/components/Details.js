@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from './Header';
-import results from './Results';
+import Results from './Results';
 import Nav from './Nav';
 import Search from './Search';
-import { withRouter } from "react-router-dom";
+
 
 
 class Details extends React.Component {
