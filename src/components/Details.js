@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import results from './Results';
 import Nav from './Nav';
 import Search from './Search';
 import { withRouter } from "react-router-dom";
