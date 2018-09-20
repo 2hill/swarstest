@@ -49,6 +49,7 @@ class Details extends React.Component {
                 });
             })
             .catch(err => console.error(err));
+            
 
         /* fetch characters */
         let initialCharacters = [];
