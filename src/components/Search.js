@@ -2,14 +2,12 @@ import React from 'react';
 
 class Search extends React.Component {
 
-
     handleSubmit = (e) => {
         e.preventDefault();
         const searchTerm = this.q.value;
         this.context.router.history.push(`/?search/${searchTerm}`);
     }
 
-    
     render() {
         return (
             <div className="search">
@@ -21,6 +19,5 @@ class Search extends React.Component {
         );
     }
 };
-
 
 export default Search;
