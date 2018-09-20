@@ -17,38 +17,44 @@ class Details extends React.Component {
 
     componentDidMount() {
  
-        /* Mega Fetch */
-
+        /* Fetch all */
         let initialCharacters = [];
         let initialStarships = [];
         let initialPlanets = [];
-        fetch(`https://swapi.co/api/people/` && `https://swapi.co/api/starships/` && `https://swapi.co/api/planets/`)
+
+        const urls = [  `https://swapi.co/api/people/`,
+                        `https://swapi.co/api/starships/`,
+                        `https://swapi.co/api/planets/`
+                    ];
+
+        
+        let requests = urls.map(url => fetch(url));
+        console.log(requests);
+
+        Promise.all(requests)
             .then(response => response.json())
             .then(data => {
-                initialCharacters = data.results.map((character) => {
+                initialCharacters = data.requests.map((character) => {
                     return character
-                });
+                })})
+            .then(  data => {
                 initialPlanets = data.results.map((planet) => {
                     return planet
-                });
+                })})
+            .then(  data => {
                 initialStarships = data.results.map((ship) => {
                     return ship
-                });
-                console.log(initialStarships);
+                })});
 
                 this.setState({
                     characters: initialCharacters,
                     planets: initialPlanets,
                     ships: initialStarships,
                     
-                });
-            })
+                })
+            
             .catch(err => console.error(err));
-  
-        }
-
-  
-    
+    }
 
     render (){
         return (
