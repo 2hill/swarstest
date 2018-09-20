@@ -2,8 +2,8 @@ import React from "react";
 import { withRouter } from 'react-router';
 
 class Individual extends React.Component {
-    render() {
-        
+    
+    render() {    
         const current_page = this.props.location.pathname;
         let shipTitle = [];
         let characterTitle = [];
@@ -17,7 +17,6 @@ class Individual extends React.Component {
             planetTitle = ["Climate", "Terrain"];
         };
     
-
         const { name, passengers, max_atmosphering_speed, height, mass, climate, terrain } = this.props.details;               
 
         return (

@@ -3,7 +3,6 @@ import Header from './Header';
 import Nav from './Nav';
 import Anim from './Anim';
 
-
 class Main extends React.Component {
 
     render() {

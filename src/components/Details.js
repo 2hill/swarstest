@@ -3,12 +3,7 @@ import Header from './Header';
 import Results from './Results';
 import Nav from './Nav';
 import Search from './Search';
-
-
-
 class Details extends React.Component {
-
-
 
     constructor() {
         super();
@@ -23,10 +18,7 @@ class Details extends React.Component {
         this.loadCharacters = this.loadCharacters.bind(this);
     }
 
-
     componentDidMount() {
-  
-
         /* fetch starships*/
         let initialStarships = [];
         fetch(`https://swapi.co/api/starships/`)
@@ -35,15 +27,13 @@ class Details extends React.Component {
                 initialStarships = data.results.map((ship) => {
                     return ship
                 });
-               
+
                 this.setState({
                     ships: initialStarships,
-                
                 });
             })
             .catch(err => console.error(err));
     
-
         /* fetch planets*/
         let initialPlanets = [];
         fetch(`https://swapi.co/api/planets/`)
@@ -52,14 +42,13 @@ class Details extends React.Component {
                 initialPlanets = data.results.map((planet) => {
                     return planet
                 });
-            
+
                 this.setState({
                     planets: initialPlanets,
                     loading: false
                 });
             })
             .catch(err => console.error(err));
- 
 
         /* fetch characters */
         let initialCharacters = [];
@@ -69,18 +58,16 @@ class Details extends React.Component {
                 initialCharacters = data.results.map((character) => {
                     return character
                 });
-               
+
                 this.setState({
                     characters: initialCharacters,
                     loading: false
                 });
             })
             .catch(err => console.error(err));
-      
     }
 
     componentDidUpdate(prevProps) {
-        
         const currentSearchTerm = this.props.match.params.searchTerm;
         const oldSearchTerm = prevProps.match.params.searchTerm;
         if (currentSearchTerm !== oldSearchTerm) {
@@ -137,7 +124,6 @@ class Details extends React.Component {
         }
     };
 
-
     render (){
         return (
         <div className="wrapper">
@@ -145,7 +131,6 @@ class Details extends React.Component {
             <Nav/>
             <Search/>
             <Results ships={this.state.ships} characters={this.state.characters} planets={this.state.planets} />
-
         </div>
                 )
     }
