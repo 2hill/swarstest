@@ -16,9 +16,27 @@ class Details extends React.Component {
     }
 
     componentDidMount() {
- 
-        /* Fetch all */
- 
+         /* Fetch all */
+
+
+        /* fetch starships*/
+        /*
+        let initialStarships = [];
+        fetch(`https://swapi.co/api/starships/`)
+            .then(response => response.json())
+            .then(data => {
+                initialStarships = data.results.map((ship) => {
+                    return ship
+                });
+
+                this.setState({
+                    ships: initialStarships,
+                });
+            })
+            .catch(err => console.error(err));
+            */
+
+
 
         const urls = [  `https://swapi.co/api/people/`,
                         `https://swapi.co/api/starships/`,
@@ -26,18 +44,28 @@ class Details extends React.Component {
                     ];
 
 
-                    
-        
+        let initialStarships = [];
         let requests = urls.map(url => fetch(url));
         console.log(requests);
 
-        Promise.all(requests)
+        Promise.all(urls)
             .then(response => response.json())
-            .then(response => { console.log(response)})
-            .catch(err => console.error(err));
-    }
+            .then(data => { 
+                initialStarships = data.results.map((ship) => {
+                    return ship
+            });
+                this.setState({
+                    ships: initialStarships,
 
-    render (){
+                })
+            })
+            .catch(err => console.error(err));
+        }
+
+            
+        
+
+    render() {
         return (
         <div className="wrapper">
             <Header/>
@@ -49,5 +77,5 @@ class Details extends React.Component {
     }
 }
 
-export default Details;
 
+export default Details;
