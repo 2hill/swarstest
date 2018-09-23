@@ -19,43 +19,28 @@ class Details extends React.Component {
          /* Fetch all */
 
 
-        /* fetch starships*/
-        /*
         let initialStarships = [];
-        fetch(`https://swapi.co/api/starships/`)
-            .then(response => response.json())
-            .then(data => {
-                initialStarships = data.results.map((ship) => {
-                    return ship
-                });
-
-                this.setState({
-                    ships: initialStarships,
-                });
-            })
-            .catch(err => console.error(err));
-            */
-
-
-
-        const urls = [  `https://swapi.co/api/people/`,
-                        `https://swapi.co/api/starships/`,
-                        `https://swapi.co/api/planets/`
-                    ];
-
-
-        let initialStarships = [];
-        let requests = urls.map(url => fetch(url));
-        console.log(requests);
-
-        Promise.all(urls)
-            .then(response => response.json())
-            .then(data => { 
-                initialStarships = data.results.map((ship) => {
+        let initialPlanets = [];
+        let initialCharacters = [];
+        
+        Promise.all([fetch(`https://swapi.co/api/people/`),
+            fetch(`https://swapi.co/api/starships/`),
+            fetch(`https://swapi.co/api/planets/`)])
+            .then(([res1, res2, res3]) => [res1.json(), res2.json(), res3.json()])
+            .then(([data1, data2, data3]) => { 
+                initialStarships = data1.results.map((ship) => {
                     return ship
             });
+                initialPlanets = data2.results.map((planet) => {
+                    return planet
+                });
+                initialCharacters = data3.results.map((character) => {
+                    return character
+                });
                 this.setState({
                     ships: initialStarships,
+                    planets: initialPlanets,
+                    characters: initialCharacters
 
                 })
             })
