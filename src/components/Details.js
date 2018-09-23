@@ -18,15 +18,16 @@ class Details extends React.Component {
     componentDidMount() {
          /* Fetch all */
 
-
         let initialStarships = [];
         let initialPlanets = [];
         let initialCharacters = [];
         
-        Promise.all([fetch(`https://swapi.co/api/people/`),
+        Promise.all([
+            fetch(`https://swapi.co/api/people/`),
             fetch(`https://swapi.co/api/starships/`),
-            fetch(`https://swapi.co/api/planets/`)])
-            .then(([res1, res2, res3]) => [res1.json(), res2.json(), res3.json()])
+            fetch(`https://swapi.co/api/planets/`)
+            ])
+            .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
             .then(([data1, data2, data3]) => { 
                 initialStarships = data1.results.map((ship) => {
                     return ship
@@ -46,9 +47,6 @@ class Details extends React.Component {
             })
             .catch(err => console.error(err));
         }
-
-            
-        
 
     render() {
         return (
