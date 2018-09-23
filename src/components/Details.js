@@ -3,6 +3,7 @@ import Header from './Header';
 import Results from './Results';
 import Nav from './Nav';
 import Search from './Search';
+
 class Details extends React.Component {
 
     constructor() {
@@ -10,122 +11,45 @@ class Details extends React.Component {
         this.state = {
             ships: [],
             planets: [],
-            characters: [],
-            loading: true
+            characters: []
         };
-        this.loadShips = this.loadShips.bind(this);
-        this.loadPlanets = this.loadPlanets.bind(this);
-        this.loadCharacters = this.loadCharacters.bind(this);
     }
 
     componentDidMount() {
-        /* fetch starships*/
-        let initialStarships = [];
-        fetch(`https://swapi.co/api/starships/`)
-            .then(response => response.json())
-            .then(data => {
-                initialStarships = data.results.map((ship) => {
-                    return ship
-                });
+         /* Fetch all */
 
-                this.setState({
-                    ships: initialStarships,
-                });
-            })
-            .catch(err => console.error(err));
-    
-        /* fetch planets*/
+        let initialStarships = [];
         let initialPlanets = [];
-        fetch(`https://swapi.co/api/planets/`)
-            .then(response => response.json())
-            .then(data => {
-                initialPlanets = data.results.map((planet) => {
+        let initialCharacters = [];
+        
+        Promise.all([
+            fetch(`https://swapi.co/api/people/`),
+            fetch(`https://swapi.co/api/starships/`),
+            fetch(`https://swapi.co/api/planets/`)
+            ])
+            .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
+            .then(([data1, data2, data3]) => { 
+                initialStarships = data1.results.map((ship) => {
+                    return ship
+            });
+                initialPlanets = data2.results.map((planet) => {
                     return planet
                 });
 
-                this.setState({
-                    planets: initialPlanets,
-                    loading: false
-                });
-            })
-            .catch(err => console.error(err));
-            
-
-        /* fetch characters */
-        let initialCharacters = [];
-        fetch(`https://swapi.co/api/people/`)
-            .then(response => response.json())
-            .then(data => {
-                initialCharacters = data.results.map((character) => {
+                initialCharacters = data3.results.map((character) => {
                     return character
                 });
-
                 this.setState({
-                    characters: initialCharacters,
-                    loading: false
-                });
+                    ships: initialStarships,
+                    planets: initialPlanets,
+                    characters: initialCharacters
+
+                })
             })
             .catch(err => console.error(err));
-    }
-
-    componentDidUpdate(prevProps) {
-        const currentSearchTerm = this.props.match.params.searchTerm;
-        const oldSearchTerm = prevProps.match.params.searchTerm;
-        if (currentSearchTerm !== oldSearchTerm) {
-            this.loadShips(currentSearchTerm);
         }
-    }
 
-
-    loadShips = (searchTerm = "ship") => {
-        this.setState({
-            loading: true
-        });
-        // Check for ships in local storage
-        const localStorageShips = localStorage.getItem(`search-${searchTerm}`);
-        if (localStorageShips) {
-            const localShips = JSON.parse(localStorageShips);
-            this.setState({
-                ships: localShips,
-                loading: false
-            });
-            return; // stop before fetch happens!
-        }
-    };
-
-    loadPlanets = (searchTerm = "planet") => {
-        this.setState({
-            loading: true
-        });
-        // Check for planets in local storage
-        const localStoragePlanets = localStorage.getItem(`search-${searchTerm}`);
-        if (localStoragePlanets) {
-            const localPlanets = JSON.parse(localStoragePlanets);
-            this.setState({
-                planets: localPlanets,
-                loading: false
-            });
-            return;
-        }
-    };
-
-    loadCharacters = (searchTerm = "character") => {
-        this.setState({
-            loading: true
-        });
-        // Check for ships in local storage
-        const localStorageCharacters = localStorage.getItem(`search-${searchTerm}`);
-        if (localStorageCharacters) {
-            const localCharacters = JSON.parse(localStorageCharacters);
-            this.setState({
-                characters: localCharacters,
-                loading: false
-            });
-            return;
-        }
-    };
-
-    render (){
+    render() {
         return (
         <div className="wrapper">
             <Header/>
@@ -137,5 +61,5 @@ class Details extends React.Component {
     }
 }
 
-export default Details;
 
+export default Details;
