@@ -29,15 +29,14 @@ class Details extends React.Component {
             ])
             .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
             .then(([data1, data2, data3]) => { 
+                initialCharacters = data3.results.map((character) => {
+                    return character
+                });
                 initialStarships = data1.results.map((ship) => {
                     return ship
             });
                 initialPlanets = data2.results.map((planet) => {
                     return planet
-                });
-
-                initialCharacters = data3.results.map((character) => {
-                    return character
                 });
                 this.setState({
                     ships: initialStarships,
